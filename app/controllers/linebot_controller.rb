@@ -27,14 +27,21 @@ class LinebotController < ApplicationController
            case event.type
            when Line::Bot::Event::MessageType::Text
                 if event.message['text'] == "住まい"
-                    p "ここまで1"
+                    #p "ここまで1"
                     client.reply_message(event["replyToken"], template)
                 elsif event.message['text'] == "はい"
                     message = {
                         type: "text",
-                        text: "賃貸提供：島根県地域優良賃貸住宅制度 https://www.pref.shimane.lg.jp/infra/build/jutaku/yuryo/"
+                        text: "島根県には特に配慮が必要な世帯に優良な住宅の供給を促進する制度があります！！"\n
+                              "賃貸提供：島根県地域優良賃貸住宅制度 https://www.pref.shimane.lg.jp/infra/build/jutaku/yuryo/"\n
+                              "リフォーム：しまね長寿・子育て安心住宅リフォーム助成事業 https://www.pref.shimane.lg.jp/kenchikujuutaku/shienseido/shimane_tyojunosumai_reform_jyosei.html"
                     }
-                    p "ここまで２"
+                elsif event.message['text'] == "いいえ"
+                    message = {
+                        type: "text",
+                        text: "家を探すor家を建てる https://www.kurashimanet.jp/lifestyle/house/"
+                    }                    
+                    #p "ここまで２"
                     client.reply_message(event["replyToken"], message)
                 end
            when Line::Bot::Event::MessageType::Location
