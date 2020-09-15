@@ -26,11 +26,14 @@ class LinebotController < ApplicationController
          when Line::Bot::Event::Message
            case event.type
            when Line::Bot::Event::MessageType::Text
-             message = {
-               type: "text",
-               text: event.message["text"] + "!"
-             }
-             client.reply_message(event["replyToken"], message)
+               if event.message['text'] == "住まい"
+             # message = {
+             # type: "text",
+             # text: event.message["text"] + "!"
+             #}
+             #elsif event.message['text'] == ""            
+             client.reply_message(event["replyToken"], template)
+         end
            when Line::Bot::Event::MessageType::Location
              message = {
                type: "location",
@@ -46,4 +49,29 @@ class LinebotController < ApplicationController
    
        head :ok
      end
+             private
+        def template
+          {
+            "type": "template",
+            "altText": "this is a confirm template",
+            "template": {
+                "type": "confirm",
+                "text": "今日の体調はいかがですか？",
+                "actions": [
+                    {
+                      "type": "message",
+                      # Botから送られてきたメッセージに表示される文字列
+                      "label": "元気",
+                      # ボタンを押した時にBotに送られる文字列
+                      "text": "元気"
+                    },
+                    {
+                      "type": "message",
+                      "label": "しんどい",
+                      "text": "しんどい"
+                    }
+                ]
+              }
+            }
+         end
  end
