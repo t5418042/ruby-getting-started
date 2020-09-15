@@ -32,7 +32,7 @@ class LinebotController < ApplicationController
                 elsif event.message['text'] == "はい"
                     message = {
                         type: "text",
-                        text: "賃貸提供：島根県地域優良賃貸住宅制度https://www.pref.shimane.lg.jp/infra/build/jutaku/yuryo/"
+                        text: "賃貸提供：島根県地域優良賃貸住宅制度 https://www.pref.shimane.lg.jp/infra/build/jutaku/yuryo/"
                     }
                     p "ここまで２"
                     client.reply_message(event["replyToken"], message)
