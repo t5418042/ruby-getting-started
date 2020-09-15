@@ -26,14 +26,15 @@ class LinebotController < ApplicationController
          when Line::Bot::Event::Message
            case event.type
            when Line::Bot::Event::MessageType::Text
-               if event.message['text'] == "住まい"
-             # message = {
-             # type: "text",
-             # text: event.message["text"] + "!"
-             #}
-             #elsif event.message['text'] == ""            
-             client.reply_message(event["replyToken"], template)
-         end
+                if event.message['text'] == "住まい"
+                    client.reply_message(event["replyToken"], template)
+                elsif event.message['text'] == "はい"
+                    message = {
+                        type: "text",
+                        text: event.message["賃貸提供：島根県地域優良賃貸住宅制度https://www.pref.shimane.lg.jp/infra/build/jutaku/yuryo/"]
+                    }
+                    client.reply_message(event["replyToken"], message)
+                end
            when Line::Bot::Event::MessageType::Location
              message = {
                type: "location",
