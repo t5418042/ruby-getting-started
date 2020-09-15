@@ -27,12 +27,14 @@ class LinebotController < ApplicationController
            case event.type
            when Line::Bot::Event::MessageType::Text
                 if event.message['text'] == "住まい"
+                    p "ここまで1"
                     client.reply_message(event["replyToken"], template)
                 elsif event.message['text'] == "はい"
                     message = {
                         type: "text",
                         text: event.message["賃貸提供：島根県地域優良賃貸住宅制度https://www.pref.shimane.lg.jp/infra/build/jutaku/yuryo/"]
                     }
+                    p "ここまで２"
                     client.reply_message(event["replyToken"], message)
                 end
            when Line::Bot::Event::MessageType::Location
