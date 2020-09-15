@@ -37,7 +37,7 @@ class LinebotController < ApplicationController
            when Line::Bot::Event::MessageType::Location
              message = {
                type: "location",
-               title: "あなたはここにいますか？",
+               title: "高齢者世帯・障がい者世帯・子育て世帯ですか？",
                address: event.message["address"],
                latitude: event.message["latitude"],
                longitude: event.message["longitude"]
@@ -56,19 +56,19 @@ class LinebotController < ApplicationController
             "altText": "this is a confirm template",
             "template": {
                 "type": "confirm",
-                "text": "今日の体調はいかがですか？",
+                "text": "高齢者世帯・障がい者世帯・子育て世帯ですか？",
                 "actions": [
                     {
                       "type": "message",
                       # Botから送られてきたメッセージに表示される文字列
-                      "label": "元気",
+                      "label": "はい",
                       # ボタンを押した時にBotに送られる文字列
-                      "text": "元気"
+                      "text": "はい"
                     },
                     {
                       "type": "message",
-                      "label": "しんどい",
-                      "text": "しんどい"
+                      "label": "いいえ",
+                      "text": "いいえ"
                     }
                 ]
               }
