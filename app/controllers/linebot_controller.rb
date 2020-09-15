@@ -35,6 +35,7 @@ class LinebotController < ApplicationController
                         text: "島根県には特に配慮が必要な世帯に優良な住宅の供給を促進する制度があります！！\n 賃貸提供：島根県地域優良賃貸住宅制度\n" 
                                #"リフォーム：しまね長寿・子育て安心住宅リフォーム助成事業 https://www.pref.shimane.lg.jp/kenchikujuutaku/shienseido/shimane_tyojunosumai_reform_jyosei.html"
                     }
+                    client.reply_message(event["replyToken"], message)
                 elsif event.message['text'] == "いいえ"
                     message = {
                         type: "text",
