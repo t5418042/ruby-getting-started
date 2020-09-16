@@ -110,4 +110,9 @@ class LinebotController < ApplicationController
                       "type": "message",
                       "label": "支援",
                       "text": "支援"
+                    }
+                ]
+            }
+          }
+        end
  end
