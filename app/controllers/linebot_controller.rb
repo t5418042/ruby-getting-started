@@ -94,9 +94,9 @@ class LinebotController < ApplicationController
          end
         def template2
           {
-            "type": "template2",
-            "altText": "this is a confirm template2",
-            "template2": {
+            "type": "template",
+            "altText": "this is a confirm template",
+            "template": {
                 "type": "confirm",
                 "text": "どちら？",
                 "actions": [
