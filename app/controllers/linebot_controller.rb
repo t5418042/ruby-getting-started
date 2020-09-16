@@ -74,7 +74,7 @@ class LinebotController < ApplicationController
                     client.reply_message(event["replyToken"], message)
                     
                  elsif event.message['text'] == "医療福祉"
-                    client.reply_message(event["replyToken"], template2)
+                    client.reply_message(event["replyToken"], template4)
                 elsif event.message['text'] == "福祉医療支援制度"
                     message = {
                         type: "text",
@@ -151,6 +151,7 @@ class LinebotController < ApplicationController
                 ]
             }
           }
+        end
         def template3
           {
             "type": "template",
@@ -174,6 +175,7 @@ class LinebotController < ApplicationController
                 ]
             }
           }
+        end  
         def template4
           {
             "type": "template",
