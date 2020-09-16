@@ -28,8 +28,7 @@ class LinebotController < ApplicationController
            when Line::Bot::Event::MessageType::Text
                p template2
                 if event.message['text'] == "住まい"
-                    #p "ここまで1"
-                    client.reply_message(event["replyToken"], template)
+                    client.reply_message(event["replyToken"], template2)
                 elsif event.message['text'] == "はい"
                     message = {
                         type: "text",
