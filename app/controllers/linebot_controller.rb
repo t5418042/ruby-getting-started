@@ -26,6 +26,7 @@ class LinebotController < ApplicationController
          when Line::Bot::Event::Message
            case event.type
            when Line::Bot::Event::MessageType::Text
+               p "test"
                p template2
                 if event.message['text'] == "住まい"
                     client.reply_message(event["replyToken"], template2)
