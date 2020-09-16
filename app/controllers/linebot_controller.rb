@@ -42,7 +42,13 @@ class LinebotController < ApplicationController
                         type: "text",
                         text: "家を探すor家を建てる https://www.kurashimanet.jp/lifestyle/house/"
                     }                    
-                    #p "ここまで２"
+                    client.reply_message(event["replyToken"], message)
+                elsif event.message['text'] == "教育"
+                    client.reply_message(event["replyToken"], template2)
+                    message = {
+                        type: "text",
+                        text: "様々な経済的支援を受けられます！ https://www.pref.shimane.lg.jp/medical/fukushi/hitori/hitori_oya_katei/keizaisien.html"
+                    }
                     client.reply_message(event["replyToken"], message)
                 end
            when Line::Bot::Event::MessageType::Location
@@ -85,4 +91,23 @@ class LinebotController < ApplicationController
               }
             }
          end
+         def template2
+          {
+            "type": "template2",
+            "altText": "this is a confirm template2",
+            "template2": {
+                "type": "confirm",
+                "text": "どちら？",
+                "actions": [
+                    {
+                      "type": "message",
+                      # Botから送られてきたメッセージに表示される文字列
+                      "label": "経済",
+                      # ボタンを押した時にBotに送られる文字列
+                      "text": "経済"
+                    },
+                    {
+                      "type": "message",
+                      "label": "支援",
+                      "text": "支援"
  end
