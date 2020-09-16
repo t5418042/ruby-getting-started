@@ -26,10 +26,8 @@ class LinebotController < ApplicationController
          when Line::Bot::Event::Message
            case event.type
            when Line::Bot::Event::MessageType::Text
-               p "test"
-               p template2
                 if event.message['text'] == "住まい"
-                    client.reply_message(event["replyToken"], template2)
+                    client.reply_message(event["replyToken"], template)
                 elsif event.message['text'] == "はい"
                     message = {
                         type: "text",
@@ -46,11 +44,12 @@ class LinebotController < ApplicationController
                     client.reply_message(event["replyToken"], message)
                 elsif event.message['text'] == "教育"
                     client.reply_message(event["replyToken"], template2)
-                    # message = {
-                    #     type: "text",
-                    #     text: "様々な経済的支援を受けられます！ https://www.pref.shimane.lg.jp/medical/fukushi/hitori/hitori_oya_katei/keizaisien.html"
-                    # }
-                    # client.reply_message(event["replyToken"], message)
+                elsif event.message['text'] == "経済"
+                    message = {
+                        type: "text",
+                        text: "様々な経済的支援を受けられます！ https://www.pref.shimane.lg.jp/medical/fukushi/hitori/hitori_oya_katei/keizaisien.html"
+                    }
+                    client.reply_message(event["replyToken"], message)
                 end
            when Line::Bot::Event::MessageType::Location
              message = {
