@@ -75,13 +75,13 @@ class LinebotController < ApplicationController
                     
                  elsif event.message['text'] == "医療福祉"
                     client.reply_message(event["replyToken"], template4)
-                elsif event.message['text'] == "福祉医療支援制度"
+                elsif event.message['text'] == "おとな向け"
                     message = {
                         type: "text",
                         text: "島根県では様々な福祉医療費助成制度があります！ \n https://www.pref.shimane.lg.jp/medical/fukushi/syougai/ippan/fukushiaramashi/iryo_3.html"
                     }
                     client.reply_message(event["replyToken"], message)
-                elsif event.message['text'] == "乳幼児・子ども医療支援制度"
+                elsif event.message['text'] == "こども向け"
                     message = {
                         type: "text",
                         text: "島根県では各市町村で乳幼児・子供医療で手厚い費用助成制度があります！ \n http://www.shimane-kokuho.or.jp/gb03_health/other/1-1ika_other2.pdf"
