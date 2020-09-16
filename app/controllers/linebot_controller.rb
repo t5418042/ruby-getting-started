@@ -187,14 +187,14 @@ class LinebotController < ApplicationController
                     {
                       "type": "message",
                       # Botから送られてきたメッセージに表示される文字列
-                      "label": "福祉医療支援制度",
+                      "label": "おとな向け",
                       # ボタンを押した時にBotに送られる文字列
-                      "text": "福祉医療支援制度"
+                      "text": "おとな向け"
                     },
                     {
                       "type": "message",
-                      "label": "乳幼児・子ども医療支援制度",
-                      "text": "乳幼児・子ども医療支援制度"
+                      "label": "こども向け",
+                      "text": "こども向け"
                     }
                 ]
             }
